@@ -1,0 +1,34 @@
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color:#EEEEEE;
+  font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+  font-size: .729vw;
+}
+/* naive-label primary按钮颜色 */
+.p-btn{
+  background-color: #C10200;
+}
+.c-btn{
+  background-color: #F3F4F5;
+}
+/* naive-form 表单行距占用元素失效 */
+.n-form-item .n-form-item-feedback-wrapper{
+  display: none !important;
+}
+/* naive-label naive-checkbox 字体大小 */
+.n-form-item .n-form-item-label,.n-checkbox .n-checkbox__label{
+  font-size: .729vw !important;
+}
+.n-input .n-input__input-el{
+  height: 100% !important;
+}
+.n-dialog .n-dialog__action {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
