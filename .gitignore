@@ -1,1 +1,13 @@
 
+# 忽略 Node.js 安装的依赖包目录
+node_modules/
+
+# pnpm
+pnpm-lock.yaml
+
+# yarn
+yarn.lock
+
+# npm
+package-lock.json
+
