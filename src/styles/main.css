@@ -31,4 +31,7 @@ body,
   justify-content: center !important;
   align-items: center !important;
 }
+.n-divider__title{
+  font-size:.625vw !important;
+}
 
