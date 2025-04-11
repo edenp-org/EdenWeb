@@ -1,11 +1,13 @@
+import { maskEmail } from '@/utils/security'
+import { getTokenFromLocalStorage, removeToken, setTokenToLocalStorage } from '@/utils/token'
 // src/stores/auth.ts
 import { defineStore } from 'pinia'
-import { getTokenFromLocalStorage, setTokenToLocalStorage, removeToken } from '@/utils/token'
 
 export interface UserInfo {
   id: number
   username: string
   avatarUrl?: string
+  email: string
   // 补充其他字段
 }
 
@@ -15,13 +17,14 @@ export interface AuthResponse {
   data: {
     token: string
     userInfo: UserInfo
+
   }
 }
 
 export const useAuthStore = defineStore('authStore', {
   state: () => ({
     token: getTokenFromLocalStorage(),
-    userInfo: null as UserInfo | null
+    userInfo: null as UserInfo | null,
   }),
   actions: {
     /**
@@ -32,7 +35,11 @@ export const useAuthStore = defineStore('authStore', {
     setAuthData(data: AuthResponse['data']) {
       this.token = data.token
       setTokenToLocalStorage(data.token)
-      this.userInfo = data.userInfo
+      // 存储脱敏后的信息
+      this.userInfo = {
+        ...data.userInfo,
+        email: maskEmail(data.userInfo.email),
+      }
     },
     /**
      * 清除登录状态
@@ -41,6 +48,6 @@ export const useAuthStore = defineStore('authStore', {
       this.token = null
       this.userInfo = null
       removeToken()
-    }
-  }
+    },
+  },
 })
