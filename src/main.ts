@@ -1,16 +1,16 @@
 import type { UserModule } from './types'
 
+import naive from 'naive-ui'
 import { setupLayouts } from 'virtual:generated-layouts'
 import { ViteSSG } from 'vite-ssg'
 import { routes } from 'vue-router/auto-routes'
 import App from './App.vue'
-import naive from 'naive-ui'
+import 'vue-masonry-css'
 
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 import 'uno.css'
 import 'vfonts/Lato.css'
-
 
 // https://github.com/antfu/vite-ssga
 export const createApp = ViteSSG(

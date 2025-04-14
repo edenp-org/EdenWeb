@@ -1,15 +1,21 @@
+// src/utils/axiosConfig.ts
 import axios from 'axios'
 
-// 全局 baseURL 设置
-axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL || 'http://47.76.72.104'
+// 判断环境自动设置 baseURL
+const isDev = import.meta.env.DEV
 
-// 必须开启，允许携带cookie进行跨域请求
-axios.defaults.withCredentials = true
+axios.defaults.baseURL = isDev
+  ? '/api' // 开发环境走代理（Vite 自动转发）
+  : import.meta.env.VITE_API_BASE_URL || 'http://47.76.72.104'
+
+// 是否携带 cookie（后端支持才开启）
+axios.defaults.withCredentials = false // 可改为 true，看后端是否配置了 allow-credentials
 
 // 请求拦截器
 axios.interceptors.request.use(
   (config) => {
-    // 无需再从store获取token，自动携带Cookie
+    // token 鉴权，也可以加上 headers
+    // config.headers.Authorization = `Bearer ${token}`
     return config
   },
   error => Promise.reject(error),
@@ -19,13 +25,10 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   response => response,
   (error) => {
-    // 全局错误处理示例：
     if (error.response) {
       switch (error.response.status) {
         case 401:
-          // 身份过期或未认证，跳转至登录页面或刷新token
           console.warn('未认证或登录已过期，请重新登录！')
-          // 可以进行store清空操作或router跳转到登录页
           break
         case 404:
           console.warn('请求的资源不存在！')

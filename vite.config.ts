@@ -163,4 +163,14 @@ export default defineConfig({
     // TODO: workaround until they support native ESM
     noExternal: ['workbox-window', /vue-i18n/],
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://47.76.72.104',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, ''), // 去掉 /api
+      },
+    },
+  },
+
 })

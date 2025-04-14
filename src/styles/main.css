@@ -4,26 +4,27 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color:#EEEEEE;
-  font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
-  font-size: .729vw;
+  background-color: #eeeeee;
+  font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+  font-size: 0.729vw;
 }
 /* naive-label primary按钮颜色 */
-.p-btn{
-  background-color: #C10200;
+.p-btn {
+  background-color: #c10200;
 }
-.c-btn{
-  background-color: #F3F4F5;
+.c-btn {
+  background-color: #f3f4f5;
 }
 /* naive-form 表单行距占用元素失效 */
-.n-form-item .n-form-item-feedback-wrapper{
+.n-form-item .n-form-item-feedback-wrapper {
   display: none !important;
 }
 /* naive-label naive-checkbox 字体大小 */
-.n-form-item .n-form-item-label,.n-checkbox .n-checkbox__label{
-  font-size: .729vw !important;
+.n-form-item .n-form-item-label,
+.n-checkbox .n-checkbox__label {
+  font-size: 0.729vw !important;
 }
-.n-input .n-input__input-el{
+.n-input .n-input__input-el {
   height: 100% !important;
 }
 .n-dialog .n-dialog__action {
@@ -31,7 +32,27 @@ body,
   justify-content: center !important;
   align-items: center !important;
 }
-.n-divider__title{
-  font-size:.625vw !important;
+.n-divider__title {
+  font-size: 0.625vw !important;
 }
 
+.n-menu .n-menu-item-content.n-menu-item-content--selected::before {
+  background-color: #f7f7f7 !important;
+}
+.n-menu .n-menu-item-content.n-menu-item-content--selected::after {
+  content: '';
+  position: absolute;
+  left: 09px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 15px;
+  background-color: #c10200;
+}
+.n-menu .n-menu-item:nth-of-type(5) {
+  margin: 40px 0px !important;
+}
+.n-menu .n-submenu-children .n-menu-item img,
+.n-submenu-children .n-menu-item-content__icon {
+  display: none !important;
+}

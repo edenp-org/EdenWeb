@@ -1,13 +1,5 @@
-<template>
-  <n-config-provider  :theme-overrides="myThemeOverrides">
-    <n-message-provider>
-      <router-view />
-    </n-message-provider>
-  </n-config-provider>
-</template>
-
 <script setup lang="ts">
-
+document.documentElement.style.fontSize = `${1920 / 100}px` // 1rem = 19.2px
 
 // 定义全局的主题覆盖配置
 const myThemeOverrides = {
@@ -25,3 +17,11 @@ const myThemeOverrides = {
   },
 }
 </script>
+
+<template>
+  <n-config-provider :theme-overrides="myThemeOverrides">
+    <n-message-provider>
+      <router-view />
+    </n-message-provider>
+  </n-config-provider>
+</template>

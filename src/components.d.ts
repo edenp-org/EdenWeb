@@ -8,18 +8,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    CaptchaModal: typeof import('./components/auth/CaptchaModal.vue')['default']
-    CountdownButton: typeof import('./components/CountdownButton.vue')['default']
-    LoginCard: typeof import('./components/auth/LoginCard.vue')['default']
-    LoginForm: typeof import('./components/LoginForm.vue')['default']
-    NotFound: typeof import('./components/NotFound.vue')['default']
-    README: typeof import('./components/README.md')['default']
-    RegisterCard: typeof import('./components/auth/RegisterCard.vue')['default']
-    RegisterForm: typeof import('./components/RegisterForm.vue')['default']
+    HeaderBar: typeof import('./components/home/HeaderBar.vue')['default']
+    PostCard: typeof import('./components/home/PostCard.vue')['default']
+    PostList: typeof import('./components/home/PostList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TheCounter: typeof import('./components/TheCounter.vue')['default']
-    TheFooter: typeof import('./components/TheFooter.vue')['default']
-    TheInput: typeof import('./components/TheInput.vue')['default']
+    SideBar: typeof import('./components/home/SideBar.vue')['default']
   }
 }
